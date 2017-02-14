@@ -4,19 +4,13 @@ export default class Stack {
     this.size = 0
   }
 
-  push = (element) => {
-    this.elements.push(element)
-    this.size ++
-  }
+  push = (element) => this.elements[this.size++] = element
 
-  pop = () => {
-    this.elements === 0 ? null : this.size --
-    this.elements.pop()
-  }
+  pop = () => this.size == 0 ? null : this.elements[this.size--]
 
-  peek = () => this.elements === 0 ? null : this.elements[this.size - 1]
+  peek = () => this.size == 0 ? null : this.elements[this.size - 1]
 
-  isEmpty = () => this.size === 0
+  isEmpty = () => this.size == 0
 
   length = () => this.size
 }

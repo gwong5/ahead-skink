@@ -15,7 +15,7 @@ describe('Stack', () => {
       const myStack = new Stack()
 
       expect(() => myStack.push('foo'))
-        .to.alter(myStack.length(), { from: 0, to: 1 })
+        .to.alter(() => myStack.length(), { from: 0, to: 1 })
     })
   })
 
@@ -26,7 +26,13 @@ describe('Stack', () => {
       myStack.push('foo')
 
       expect(() => myStack.pop())
-        .to.alter(myStack.length(), { from: 2, to: 1 })
+        .to.alter(() => myStack.length(), { from: 2, to: 1 })
+    })
+
+    it('returns null if stack is empty.', () => {
+      const myStack = new Stack()
+
+      expect(myStack.pop()).to.equal(null)
     })
   })
 
@@ -36,7 +42,7 @@ describe('Stack', () => {
       myStack.push('apple')
       myStack.push('cake')
       myStack.push('foo')
-      expect(myStack.peek()).to.equal('foo')
+      expect(myStack.peek()).to.eql('foo')
     })
   })
 
@@ -46,16 +52,25 @@ describe('Stack', () => {
 
       expect(myStack.isEmpty()).to.equal(true)
     })
+
+    it('returns false if stack is not empty', () => {
+      const myStack = new Stack()
+      myStack.push('foo')
+      myStack.push('boo')
+      myStack.push('hoo')
+
+      expect(myStack.isEmpty()).to.equal(false)
+    })
   })
 
   context('length()', () => {
     it('returns number of elements in stack.', () => {
       const myStack = new Stack()
       myStack.push('foo')
-      myStack.push('foo')
-      myStack.push('foo')
+      myStack.push('boo')
+      myStack.push('hoo')
 
-      expect(myStack.length().to.equal(3))
+      expect(myStack.length()).to.equal(3)
     })
   })
 })

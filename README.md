@@ -1,4 +1,10 @@
-# Learning Contract for Goal: Core Data Structures
+# Installation and setup
+
+$npm i
+
+$npm run test
+
+# Learning Contract for Goal: Core Data Structures [Basic]
 
 [Description](#description) | [Basic Data Structures](#basic-data-structures) | [Advanced Data Structures](#advanced-data-structures) | [Context](#context) | [Specifications](#specifications) | [Quality Rubric](#quality-rubric)
 

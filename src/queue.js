@@ -1,24 +1,32 @@
-export default class Stack {
+export default class Queue {
   constructor() {
     this.elements = []
     this.size = 0
   }
 
-  push(element) {
+  enqueue(element) {
     return this.elements[this.size++] = element
   }
-  pop() {
+
+  dequeue() {
     if (this.size === 0) {
       return null
     } else {
-      const removedElement = this.elements[this.size - 1]
-      this.size--
-      this.elements.splice(this.size, 1)
-      return removedElement
+      const dequeuedElement = this.elements[0]
+      this.elements.splice(0,1)
+      return dequeuedElement
     }
   }
 
-  peek() {
+  front() {
+    if (this.size === 0) {
+      return null
+    } else {
+      return this.elements[0]
+    }
+  }
+
+  back() {
     if (this.size === 0) {
       return null
     } else {
@@ -28,10 +36,9 @@ export default class Stack {
 
   isEmpty() {
     return this.size === 0
- }
+  }
 
   length() {
     return this.size
   }
-
 }

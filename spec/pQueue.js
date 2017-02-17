@@ -10,7 +10,7 @@ describe('PriorityQueue', () => {
   })
 
   context('enqueue', (element, priority) => {
-    it('adds an element with priority (number) to the back of the queue.', () => {
+    it('adds one element to the queue queue.', () => {
       const pQueue = new PriorityQueue
 
       expect(() => pQueue.enqueue('foo', 1))
@@ -68,7 +68,7 @@ describe('PriorityQueue', () => {
   })
 
   context('dequeue', () => {
-    it('returns and removes the front element (highest priority) in the queue or null if the queue is empty.', () => {
+    it('returns and removes the front element (highest priority) in the queue.', () => {
       const pQueue = new PriorityQueue
       pQueue.enqueue('foo', 1)
       pQueue.enqueue('blue', 4)
@@ -80,6 +80,11 @@ describe('PriorityQueue', () => {
         {data: 'blue', priority: 4},
         {data: 'foo', priority: 1}
       ])
+    })
+    it('returns null if the queue is empty', () => {
+      const pQueue = new PriorityQueue
+
+      expect(pQueue.dequeue()).to.be.null
     })
   })
 

@@ -9,8 +9,7 @@ describe('Queue', () => {
     expect(Queue).to.be.a('function')
   })
 
-
-  context('enqueue()', () => {
+  context('enqueue()', (element) => {
     it('adds an element to the back of the queue.', () => {
       const myQueue = new Queue()
       myQueue.enqueue('foo')
@@ -39,6 +38,7 @@ describe('Queue', () => {
       myQueue.enqueue('blue')
       myQueue.enqueue('bar')
       myQueue.enqueue('blargh')
+      
       myQueue.dequeue()
 
       expect(myQueue.elements).to.eql(['blue', 'bar', 'blargh'])

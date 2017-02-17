@@ -10,7 +10,7 @@ describe('Stack', () => {
   })
 
 
-  context('push()', () => {
+  context('push()', (element) => {
     it('pushes an element to the top of the stack.', () => {
       const myStack = new Stack()
       myStack.push('boo')
@@ -27,7 +27,9 @@ describe('Stack', () => {
       myStack.push('foo')
       myStack.push('boo')
       myStack.push('blah')
+
       myStack.pop()
+      
       expect(myStack.elements).to.eql(['foo', 'boo'])
     })
 
